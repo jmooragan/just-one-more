@@ -21,12 +21,15 @@ A lightweight React prototype for coordinating community meal contributions (“
 # choose a folder and run
 npm create vite@latest jom -- --template react
 cd jom
+```
 
 ### 2) Install dependencies
+```
 npm i
 npm i lucide-react
 npm i -D tailwindcss postcss autoprefixer
 npx tailwindcss init -p
+```
 
 ### 3) Configure Tailwind
 Edit tailwind.config.js:
