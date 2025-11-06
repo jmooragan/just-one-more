@@ -67,7 +67,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   </React.StrictMode>
 )
 ```
-- Keep Vite’s default index.html (it already has <div id="root"></div>).
+- Keep Vite’s default index.html
 
 ### 5) Run locally
 ```bash
