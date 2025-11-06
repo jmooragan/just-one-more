@@ -65,10 +65,12 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 Keep Vite’s default index.html (it already has <div id="root"></div>).
 
 ### 5) Run locally
+```
 npm run dev
+```
 
 
-Features
+**###Features**
 
 Contributor onboarding with optional contact and location capture
 
@@ -94,7 +96,7 @@ Impact: badges, leaderboard, and notifications
 
 WhatsApp contact in footer (opens chat to +27 66 229 5868)
 
-Notes & caveats
+**Notes & caveats**
 
 This prototype uses localStorage only; resetting data is available in Settings.
 
