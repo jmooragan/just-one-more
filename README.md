@@ -24,7 +24,7 @@ cd jom
 ```
 
 ### 2) Install dependencies
-```
+```bash
 npm i
 npm i lucide-react
 npm i -D tailwindcss postcss autoprefixer
@@ -33,6 +33,7 @@ npx tailwindcss init -p
 
 ### 3) Configure Tailwind
 Edit tailwind.config.js:
+```js
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -42,15 +43,19 @@ export default {
   theme: { extend: {} },
   plugins: [],
 }
+```
 
 Replace src/index.css with:
+```css
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+```
 
 ### 4) Add the App code:
-Replace src/App.jsx with the App.jsx from the repo
-Ensure src/main.jsx renders <App />:
+- Replace src/App.jsx with the App.jsx from the repo
+- Ensure src/main.jsx renders <App />:
+```jsx
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
@@ -61,11 +66,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <App />
   </React.StrictMode>
 )
-
-Keep Vite’s default index.html (it already has <div id="root"></div>).
+```
+- Keep Vite’s default index.html (it already has <div id="root"></div>).
 
 ### 5) Run locally
-```
+```bash
 npm run dev
 ```
 
