@@ -16,26 +16,97 @@ A lightweight React + Tailwind experience that helps families “pack one extra�
 ## Getting started
 
 ```bash
-npm install
+# choose a folder and run
+npm create vite@latest jom -- --template react
+cd jom
+
+### 2) Install dependencies
+npm i
+npm i lucide-react
+npm i -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+
+### 3) Configure Tailwind
+Edit tailwind.config.js:
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    './index.html',
+    './src/**/*.{js,ts,jsx,tsx}',
+  ],
+  theme: { extend: {} },
+  plugins: [],
+}
+
+Replace src/index.css with:
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+### 4) Add the App code:
+Replace src/App.jsx with the App.jsx from the repo
+Ensure src/main.jsx renders <App />:
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App.jsx'
+import './index.css'
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+)
+
+Keep Vite’s default index.html (it already has <div id="root"></div>).
+
+### 5) Run locally
 npm run dev
-```
 
-Vite prints the local URL (defaults to http://localhost:5173). The prototype seeds demo lighthouses on first load; reset everything via **Settings → Reset Data**.
 
-### Additional scripts
-- `npm run build` – create a production bundle in `dist/`
-- `npm run preview` – serve the production bundle locally
+Features
 
----
+Contributor onboarding with optional contact and location capture
 
-## Features
-- Contributor onboarding with optional contact + location capture, including automatic lighthouse suggestion via geolocation/Haversine distance.
-- Meal logging with QR/container IDs, allergen flags, drop-off vs collection workflow, and quantity-based bulk codes.
-- Keeper dashboard to receive/distribute meals, award loyalty points, and trigger milestone notifications.
-- Impact view with badges, leaderboard, and notification timeline.
-- WhatsApp CTA in the footer that opens a chat to +27 66 229 5868.
+Nearest lighthouse auto-select (Haversine distance)
 
-### Notes
-- QR scanning is stubbed; integrate `html5-qrcode` or similar when needed.
-- Notifications/geolocation require browser permission and a secure context (https or localhost).
-- Clearing browser storage wipes the prototype data by design.
+Log a meal with:
+
+QR/container ID
+
+Date and method (dropoff / collect)
+
+Description
+
+Meal type (Vegetarian/Beef/Pork/Fish)
+
+Allergens checkboxes
+
+Bulk save via Quantity dropdown (BASE-01, BASE-02, …)
+
+Keeper view to receive and distribute meals (awards points + milestone notifications)
+
+Impact: badges, leaderboard, and notifications
+
+WhatsApp contact in footer (opens chat to +27 66 229 5868)
+
+Notes & caveats
+
+This prototype uses localStorage only; resetting data is available in Settings.
+
+Camera QR scanning is stubbed; you can integrate e.g. html5-qrcode later.
+
+Notifications require user permission and a supported browser (secure context). Geolocation prompts the user.
+
+Repository structure (after setup)
+jom/
+├─ index.html
+├─ package.json
+├─ tailwind.config.js
+├─ postcss.config.js
+├─ .gitignore
+├─ src/
+│  ├─ App.jsx        # main app (paste your file here)
+│  ├─ main.jsx
+│  └─ index.css
+└─ public/
+
